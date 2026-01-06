@@ -5,6 +5,23 @@
 constexpr float F_PI = 3.14159265358979323846f;
 
 /**
+ * @brief Forces all digital pins into a known HIGH state.
+ *
+ * This function configures every digital pin on the MCU as an OUTPUT and
+ * drives it HIGH. It is particularly useful to prevent floating chip-select (CS)
+ * lines on shared buses such as SPI, which can cause unintended device
+ * selection and bus contention.
+ */
+inline void forceAllPinsHigh()
+{
+    for (uint8_t pin = 0; pin < NUM_DIGITAL_PINS; pin++)
+    {
+        pinMode(pin, OUTPUT);
+        digitalWrite(pin, HIGH);
+    }
+}
+
+/**
  * @brief Constrain a value between a minimum and maximum.
  *
  * Works for any numeric type: float, double, int, etc.
