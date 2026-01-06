@@ -12,14 +12,7 @@ constexpr float F_PI = 3.14159265358979323846f;
  * lines on shared buses such as SPI, which can cause unintended device
  * selection and bus contention.
  */
-inline void forceAllPinsHigh()
-{
-    for (uint8_t pin = 0; pin < NUM_DIGITAL_PINS; pin++)
-    {
-        pinMode(pin, OUTPUT);
-        digitalWrite(pin, HIGH);
-    }
-}
+void forceAllPinsHigh();
 
 /**
  * @brief Constrain a value between a minimum and maximum.
